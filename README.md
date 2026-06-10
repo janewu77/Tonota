@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🎙️ Tonota
+<img src="docs/images/tonota-icon.svg" width="96" alt="Tonota logo" />
+
+# Tonota
 
 **Privacy-first voice memos for iPhone — transcribed and polished entirely on your device.**
 
@@ -14,8 +16,7 @@ Zero cloud. Zero account. Your voice never leaves your phone.
 
 <br/>
 
-<!-- TODO: 放 2–3 张截图，建议尺寸一致、并排 -->
-<!-- <img src="assets/screenshot-1.png" width="30%" /> <img src="assets/screenshot-2.png" width="30%" /> <img src="assets/screenshot-3.png" width="30%" /> -->
+<img src="assets/store_images/iphone_pano_readme.png" alt="Tonota — voice memos, transcribed on-device. Speech to text in seconds, edit & share, 10 languages, 100% on-device AI" width="100%" />
 
 </div>
 
@@ -42,7 +43,7 @@ Most voice memo apps upload your audio to a server for transcription. Tonota doe
 
 Swift / SwiftUI · SwiftData (local-only, no CloudKit) · WhisperKit · mlx-swift-lm
 
-> The story: from first line of code to App Store approval in **9 days** — written up [on LinkedIn](https://www.linkedin.com/in/janewush). <!-- TODO: 换成帖子直链 -->
+> The story: from first line of code to App Store approval in **9 days** — written up [on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7470456182693056512/).
 
 ## Roadmap
 
@@ -55,7 +56,7 @@ Found a bug or have a feature request? [Open an issue](../../issues) — feedbac
 
 ## Privacy
 
-Tonota collects nothing. See the [privacy policy](https://janewu77.github.io/Tonota/).
+Tonota collects nothing. See the [privacy policy](https://janewu77.github.io/Tonota/privacy.html).
 
 ---
 
