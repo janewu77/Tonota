@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tonota — Private On-Device Voice Memo Transcription</title>
+  <meta name="description" content="Tonota records your voice and transcribes it on-device using AI. No cloud, no account, no tracking — your words never leave your iPhone. Free on the App Store." />
+  <meta name="apple-itunes-app" content="app-id=6775595589" />
+  <meta name="theme-color" content="#9b78e8" />
+  <link rel="icon" type="image/svg+xml" href="images/tonota-icon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <link rel="canonical" href="https://janewu77.github.io/Tonota/" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tonota" />
+  <meta property="og:title" content="Tonota — Private, On-Device Voice Memo Transcription" />
+  <meta property="og:description" content="Tap, speak, done. Tonota turns your voice into text entirely on your iPhone — no cloud, no account, no data leaves your phone." />
+  <meta property="og:url" content="https://janewu77.github.io/Tonota/" />
+  <meta property="og:image" content="https://janewu77.github.io/Tonota/images/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tonota — Private, On-Device Voice Memo Transcription" />
+  <meta name="twitter:description" content="Tap, speak, done. Your voice becomes text entirely on your iPhone — no cloud, no account." />
+  <meta name="twitter:image" content="https://janewu77.github.io/Tonota/images/og-image.png" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Tonota",
+    "operatingSystem": "iOS 17",
+    "applicationCategory": "ProductivityApplication",
+    "description": "On-device voice memo recording and AI transcription for iPhone. No cloud, no account, no tracking.",
+    "url": "https://janewu77.github.io/Tonota/",
+    "image": "https://janewu77.github.io/Tonota/images/og-image.png",
+    "installUrl": "https://apps.apple.com/app/id6775595589",
+    "author": { "@type": "Person", "name": "Jane Wu" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #f0edf8;
+      --surface:   #faf8ff;
+      --card:      #ffffff;
+      --border:    #ede8f8;
+      --primary:   #9b78e8;
+      --primary-s: #c4b0f0;
+      --text-h:    #3a2d5c;
+      --text-b:    #4a3f6b;
+      --text-s:    #9b90bf;
+      --text-m:    #c5bce0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-b);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 248, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    nav .logo img { width: 32px; height: 32px; border-radius: 8px; }
+    nav .logo span {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-h);
+      letter-spacing: -0.3px;
+    }
+    nav .logo span em { color: var(--primary); font-style: normal; }
+    .nav-cta {
+      background: var(--primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: opacity .15s;
+    }
+    .nav-cta:hover { opacity: .85; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      letter-spacing: 0.2px;
+    }
+    .hero-badge svg { width: 13px; height: 13px; fill: currentColor; }
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 800;
+      color: var(--text-h);
+      letter-spacing: -1.5px;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, #c4b0f0, #9b78e8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--text-s);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .hero-download-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-download-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .hero-download-buttons .btn-appstore,
+    .hero-download-buttons .btn-testflight {
+      justify-content: center;
+    }
+    .bottom-cta .hero-actions .btn-appstore,
+    .bottom-cta .hero-actions .btn-testflight {
+      justify-content: center;
+      min-width: 220px;
+    }
+    .btn-appstore {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--text-h);
+      color: #fff;
+      text-decoration: none;
+      padding: 13px 24px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: transform .15s, opacity .15s;
+    }
+    .btn-appstore:hover { transform: translateY(-1px); opacity: .9; }
+    .btn-appstore svg { width: 24px; height: 24px; fill: #fff; flex-shrink: 0; }
+    .btn-appstore small { display: block; font-size: 10px; font-weight: 400; opacity: .75; margin-bottom: 1px; }
+    .btn-testflight {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--card);
+      color: var(--text-h);
+      text-decoration: none;
+      padding: 13px 24px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1.5px solid var(--primary-s);
+      box-shadow: 0 2px 8px rgba(155,120,232,0.12);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn-testflight:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(155,120,232,0.2); }
+    .btn-testflight img { width: 24px; height: 24px; border-radius: 5px; flex-shrink: 0; }
+    .btn-testflight small { display: block; font-size: 10px; font-weight: 400; color: var(--text-s); margin-bottom: 1px; }
+    .hero-qr {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-qr img {
+      width: 120px;
+      height: 120px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 4px;
+    }
+    .hero-qr span {
+      font-size: 10px;
+      color: var(--text-m);
+      text-align: center;
+    }
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-m);
+      margin-top: 18px;
+    }
+    /* version badge on feat cards */
+    .feat-version {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(155,120,232,0.1);
+      border: 1px solid rgba(155,120,232,0.25);
+      border-radius: 6px;
+      padding: 1px 7px;
+      margin-left: 6px;
+      vertical-align: middle;
+      letter-spacing: 0.2px;
+    }
+    /* ── FEEDBACK & SUPPORT ── */
+    .support-band {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .support-band h2 {
+      font-size: clamp(20px, 3.5vw, 30px);
+      font-weight: 800;
+      color: var(--text-h);
+      letter-spacing: -0.6px;
+      margin-bottom: 10px;
+    }
+    .support-band p {
+      font-size: 15px;
+      color: var(--text-s);
+      max-width: 440px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .support-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-feedback {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: transform .15s, opacity .15s;
+    }
+    .btn-feedback:hover { transform: translateY(-1px); opacity: .88; }
+    .btn-feedback svg { width: 17px; height: 17px; fill: #fff; }
+    .btn-bmc {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffdd00;
+      color: #1a1a1a;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: transform .15s;
+    }
+    .btn-bmc:hover { transform: translateY(-1px); }
+
+    /* ── PHONE MOCKUP STRIP ── */
+    .screens {
+      overflow: hidden;
+      padding: 0 0 64px;
+      position: relative;
+    }
+    .screens-track {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0 24px;
+    }
+    .screen-frame {
+      flex: 0 0 auto;
+      width: 200px;
+    }
+    .screen-frame img {
+      width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 16px 48px rgba(60, 30, 100, 0.16), 0 2px 8px rgba(60,30,100,0.08);
+      border: 1px solid var(--border);
+      display: block;
+      transition: transform .2s ease;
+    }
+    .screen-frame img:hover { transform: translateY(-4px) scale(1.01); }
+    .screen-frame figcaption {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-m);
+      margin-top: 10px;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 24px 80px;
+    }
+    .section-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 800;
+      color: var(--text-h);
+      letter-spacing: -0.8px;
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .feat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 12px rgba(140,110,200,.06);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .feat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(140,110,200,.14);
+    }
+    .feat-card p em { color: var(--text-b); font-style: normal; font-weight: 600; }
+    .feat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #c4b0f0, #9b78e8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: 20px;
+    }
+    .feat-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-h);
+      margin-bottom: 8px;
+    }
+    .feat-card p {
+      font-size: 14px;
+      color: var(--text-s);
+      line-height: 1.65;
+    }
+
+    /* ── PRIVACY CALLOUT ── */
+    .privacy-band {
+      background: linear-gradient(135deg, #3a2d5c 0%, #5a4292 100%);
+      color: #fff;
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .privacy-band h2 {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      margin-bottom: 14px;
+    }
+    .privacy-band p {
+      font-size: 16px;
+      opacity: .75;
+      max-width: 480px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .privacy-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .pill svg { width: 14px; height: 14px; fill: currentColor; opacity: .85; }
+
+    /* ── LANGUAGES ── */
+    .languages {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 24px;
+      text-align: center;
+    }
+    .lang-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .lang-chip {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-b);
+    }
+    .lang-chip.auto {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    /* ── REQUIREMENTS ── */
+    .reqs {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 24px;
+      text-align: center;
+    }
+    .req-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    .req-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 13px;
+      color: var(--text-b);
+    }
+    .req-item span { font-size: 16px; }
+
+    /* ── CTA ── */
+    .bottom-cta {
+      padding: 80px 24px;
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .bottom-cta h2 {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 800;
+      color: var(--text-h);
+      letter-spacing: -0.8px;
+      margin-bottom: 14px;
+    }
+    .bottom-cta p {
+      font-size: 16px;
+      color: var(--text-s);
+      margin-bottom: 32px;
+    }
+    .bmc-line {
+      margin-top: 28px;
+      font-size: 14px;
+      color: var(--text-s);
+    }
+    .bmc-line a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .bmc-line a:hover { text-decoration: underline; }
+    .bmc-footer {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffdd00;
+      color: #1a1a1a;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: transform .15s;
+    }
+    .bmc-footer:hover { transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    footer .logo-small {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    footer .logo-small img { width: 24px; height: 24px; border-radius: 6px; }
+    footer .logo-small span { font-size: 14px; font-weight: 700; color: var(--text-h); }
+    footer .logo-small span em { color: var(--primary); font-style: normal; }
+    footer nav { display: flex; gap: 20px; }
+    footer nav a { font-size: 13px; color: var(--text-s); text-decoration: none; }
+    footer nav a:hover { color: var(--primary); }
+    footer .copy { font-size: 12px; color: var(--text-m); }
+
+    @media (max-width: 600px) {
+      .screen-frame { width: 160px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <img src="images/tonota-icon.svg" alt="Tonota icon" />
+    <span>tonota<em>.</em></span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-cta" href="https://apps.apple.com/de/app/tonota/id6775595589" target="_blank" rel="noopener">Get Tonota</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 1 3 3v8a3 3 0 0 1-6 0V4a3 3 0 0 1 3-3zm-1 17.93V21h-2v2h6v-2h-2v-2.07A8 8 0 0 0 20 12h-2a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.93z"/></svg>
+    On-Device AI · Free on App Store
+  </div>
+  <h1>Voice memos.<br /><span>Transcribed privately.</span></h1>
+  <p>Tap, speak, done. Tonota turns your voice into text entirely on your iPhone — organize it into folders, search every word, and keep it all off the cloud.</p>
+  <div class="hero-download-row" id="download">
+    <div class="hero-download-buttons">
+      <a class="btn-appstore" href="https://apps.apple.com/de/app/tonota/id6775595589" target="_blank" rel="noopener">
+        <svg viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.5 135.4-317.3 267.9-317.3 99.8 0 181.5 66.6 244.1 66.6 59.1 0 152.3-70.7 263.1-70.7zm-137.9-155c49.7-58.4 85.1-139.5 85.1-220.6 0-11.3-.6-22.6-2.6-32.6C654.9 15.3 571.8 61.5 511 133.4c-44.8 51.9-84.4 130.8-84.4 211.3 0 12.5 2 25 2.6 29.2.6.6 1.9 1.3 3.2 1.3 7.7 0 148.8-51.4 220.8-133.3z"/></svg>
+        <div>
+          <small>Download on the</small>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;App Store&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </a>
+      <a class="btn-testflight" href="https://testflight.apple.com/join/AFRTkygT" target="_blank" rel="noopener">
+        <img src="images/testflight-icon.jpg" alt="TestFlight" />
+        <div>
+          <small>Latest updates on</small>
+          TestFlight Beta
+        </div>
+      </a>
+    </div>
+    <div class="hero-qr">
+      <img src="images/qr-appstore.png" alt="App Store QR code" loading="lazy" />
+      <span>Scan to open<br />App Store</span>
+    </div>
+  </div>
+  <p class="hero-note">Free · iPhone 12 or later · iOS 17+</p>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="screens">
+  <div class="screens-track">
+    <figure class="screen-frame">
+      <img src="images/shot-onboarding.png" alt="Onboarding — your recordings stay on this device" loading="lazy" />
+      <figcaption>Get Started</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img src="images/shot-memos.png" alt="All Memos list showing recent voice memos" loading="lazy" />
+      <figcaption>My Memos</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img src="images/shot-folders.png" alt="My Memos with folders: Projects and Archive" loading="lazy" />
+      <figcaption>Folders</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img src="images/shot-transcript.png" alt="Memo detail with transcribed interview summary" loading="lazy" />
+      <figcaption>Transcript</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img src="images/shot-recording.png" alt="Recording in progress with waveform" loading="lazy" />
+      <figcaption>Recording</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img src="images/shot-settings.png" alt="Settings screen" loading="lazy" />
+      <figcaption>Settings</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <p class="section-label">Features</p>
+  <h2 class="section-title">Everything you need.<br />Nothing you don't.</h2>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="feat-icon">🤫</div>
+      <h3>100% on-device, zero cloud</h3>
+      <p>All transcription runs locally using WhisperKit and Apple's Neural Engine. Your audio and text never touch a server — no account, no tracking, works offline.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⚡️</div>
+      <h3>Start recording in one tap<span class="feat-version">v1.6</span></h3>
+      <p>Long-press the app icon for a quick-action shortcut, or say <em>"Hey Siri, start recording with Tonota"</em> — no unlocking, no navigating, just speak.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🔒</div>
+      <h3>Lock screen &amp; Control Center<span class="feat-version">v1.6</span></h3>
+      <p>Add a Tonota button to your lock screen or Control Center. One tap starts recording instantly — even before you unlock your phone.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">▶️</div>
+      <h3>Play back originals</h3>
+      <p>Every recording is kept. Tap play in the detail view to hear the original audio any time — perfect for double-checking a tricky word.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🔍</div>
+      <h3>Search everything</h3>
+      <p>Tap search in any list to filter instantly by title <em>and</em> transcript content — so the memo you need is always a few keystrokes away.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🗂️</div>
+      <h3>Folders &amp; organization</h3>
+      <p>Sort recordings into your own folders and browse by collection. Keep your ideas, meetings, and notes cleanly separated.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">✅</div>
+      <h3>Bulk move &amp; delete<span class="feat-version">v1.6</span></h3>
+      <p>Multi-select recordings to move them to any folder or delete them all at once. Keep your library tidy without touching each memo one by one.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📁</div>
+      <h3>Export text + audio</h3>
+      <p>Turn on export in Settings and Tonota saves each transcript as a .txt file bundled with the original audio recording to any folder you choose.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🌍</div>
+      <h3>10 languages, auto-detected</h3>
+      <p>English, Chinese, German, French, Spanish, Italian, Japanese, Korean, Portuguese and more. WhisperKit detects your language automatically — or pin one in Settings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section class="privacy-band">
+  <h2>Your words are yours.</h2>
+  <p>Tonota was built on one principle: your recordings and transcriptions never leave your phone.</p>
+  <div class="privacy-pills">
+    <span class="pill">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+      No cloud upload
+    </span>
+    <span class="pill">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg>
+      No account required
+    </span>
+    <span class="pill">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z"/><path d="M6 10h12v2H6z" opacity=".3"/></svg>
+      No ads, no tracking
+    </span>
+    <span class="pill">
+      <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+      Works offline
+    </span>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section class="languages">
+  <p class="section-label">Languages</p>
+  <h2 class="section-title">Speak any language.<br />Tonota keeps up.</h2>
+  <p style="color: var(--text-s); font-size: 15px;">WhisperKit auto-detects your language. You can also pin one in Settings.</p>
+  <div class="lang-chips">
+    <span class="lang-chip auto">🔍 Auto-Detect</span>
+    <span class="lang-chip">🇬🇧 English</span>
+    <span class="lang-chip">🇨🇳 Chinese</span>
+    <span class="lang-chip">🇩🇪 German</span>
+    <span class="lang-chip">🇫🇷 French</span>
+    <span class="lang-chip">🇪🇸 Spanish</span>
+    <span class="lang-chip">🇮🇹 Italian</span>
+    <span class="lang-chip">🇯🇵 Japanese</span>
+    <span class="lang-chip">🇰🇷 Korean</span>
+    <span class="lang-chip">🇵🇹 Portuguese</span>
+  </div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section class="reqs">
+  <p class="section-label">Requirements</p>
+  <div class="req-list">
+    <div class="req-item"><span>📱</span> iPhone 12 or later (Apple A14+)</div>
+    <div class="req-item"><span>🍎</span> iOS 17.0 or later</div>
+    <div class="req-item"><span>💾</span> ~250 MB for model download</div>
+    <div class="req-item"><span>🎙️</span> Microphone access</div>
+  </div>
+</section>
+
+<!-- FEEDBACK & SUPPORT -->
+<section class="support-band">
+  <h2>Got feedback? Found a bug?</h2>
+  <p>Tonota is built by one developer. Your reports directly shape what gets fixed and what gets built next.</p>
+  <div class="support-actions">
+    <a class="btn-feedback" href="mailto:janewu2005@gmail.com?subject=Tonota%20Feedback" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Send Feedback
+    </a>
+    <a class="btn-bmc" href="https://buymeacoffee.com/janewu77" target="_blank" rel="noopener">
+      ☕ Buy me a coffee
+    </a>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <h2>Ready to start?</h2>
+  <p>Free on the App Store. Your first transcription is seconds away.</p>
+  <div class="hero-actions">
+    <a class="btn-appstore" href="https://apps.apple.com/de/app/tonota/id6775595589" target="_blank" rel="noopener">
+      <svg viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.5 135.4-317.3 267.9-317.3 99.8 0 181.5 66.6 244.1 66.6 59.1 0 152.3-70.7 263.1-70.7zm-137.9-155c49.7-58.4 85.1-139.5 85.1-220.6 0-11.3-.6-22.6-2.6-32.6C654.9 15.3 571.8 61.5 511 133.4c-44.8 51.9-84.4 130.8-84.4 211.3 0 12.5 2 25 2.6 29.2.6.6 1.9 1.3 3.2 1.3 7.7 0 148.8-51.4 220.8-133.3z"/></svg>
+      <div>
+        <small>Download on the</small>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;App Store&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </a>
+    <a class="btn-testflight" href="https://testflight.apple.com/join/AFRTkygT" target="_blank" rel="noopener">
+      <img src="images/testflight-icon.jpg" alt="TestFlight" />
+      <div>
+        <small>Latest updates on</small>
+        TestFlight Beta
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="logo-small" href="#">
+    <img src="images/tonota-icon.svg" alt="Tonota" />
+    <span>tonota<em>.</em></span>
+  </a>
+  <nav>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:janewu2005@gmail.com">Support</a>
+    <a href="https://github.com/janewu77" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+  <span class="copy">© 2026 Jane Wu</span>
+</footer>
+
+</body>
+</html>

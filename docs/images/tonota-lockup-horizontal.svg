@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 120" width="470" height="120">
+  <defs>
+    
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c7b4f2"></stop><stop offset="0.52" stop-color="#a98ded"></stop><stop offset="1" stop-color="#9079e6"></stop>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.26"></stop><stop offset="0.46" stop-color="#ffffff" stop-opacity="0"></stop>
+    </linearGradient>
+    <clipPath id="sq"><rect width="120" height="120" rx="29" ry="29"></rect></clipPath>
+  </defs>
+
+  
+  <g transform="translate(0,12) scale(0.8)">
+    <g clip-path="url(#sq)">
+      <rect width="120" height="120" fill="url(#bg)"></rect>
+      <rect width="120" height="120" fill="url(#sheen)"></rect>
+      <rect x="46.5" y="40" width="27" height="8.6" rx="4.3" fill="#fff"></rect>
+      <rect x="55.7" y="44" width="8.6" height="38" rx="4.3" fill="#fff"></rect>
+      <g fill="none" stroke="#fff" stroke-linecap="round">
+        <path d="M41 45 q -7 15 0 30" stroke-width="5" opacity="0.92"></path>
+        <path d="M31 39 q -12 23 0 42" stroke-width="5" opacity="0.52"></path>
+        <path d="M79 45 q 7 15 0 30" stroke-width="5" opacity="0.92"></path>
+        <path d="M89 39 q 12 23 0 42" stroke-width="5" opacity="0.52"></path>
+      </g>
+    </g>
+  </g>
+
+  
+  <text class="wm" x="126" y="80" fill="#352a52">tonota<tspan fill="#9b78e8">.</tspan></text>
+</svg>
