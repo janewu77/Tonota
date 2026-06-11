@@ -35,7 +35,9 @@ Most voice memo apps upload your audio to a server for transcription. Tonota doe
 - **On-device transcription** — powered by [WhisperKit](https://github.com/argmaxinc/WhisperKit), up to Whisper Large v3, 10 languages
 - **AI text polishing** — a local LLM (via [MLX](https://github.com/ml-explore/mlx-swift)) turns raw speech into clean, readable text; pick your model with quality ratings
 - **Live dictation mode** — optional real-time transcription while you speak
-- **Folders & search** — organize memos, search across titles and transcripts
+- **Record from anywhere** — Siri & Shortcuts actions ("Start Recording", "Stop & Save"), home-screen Quick Action, and a Control Center / Lock Screen button (iOS 18+)
+- **Resumable transcriptions** — interrupted transcriptions are detected on next launch and resumed with one tap
+- **Folders & search** — organize memos, search across titles and transcripts, batch-move memos between folders
 - **Batch export** — transcripts as `.txt`, original audio included
 - **Localized** — English, Deutsch, 简体中文
 
@@ -45,9 +47,12 @@ Swift / SwiftUI · SwiftData (local-only, no CloudKit) · WhisperKit · mlx-swif
 
 > The story: from first line of code to App Store approval in **9 days** — written up [on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7470456182693056512/).
 
+## What's new in 1.6
+
+Start recording without opening the app: Siri & Shortcuts actions (chain them into automations — e.g. record when your car's Bluetooth connects), a home-screen Quick Action, and a Control Center / Lock Screen button (iOS 18+). Plus resumable interrupted transcriptions, batch move to folders, and a new About page.
+
 ## Roadmap
 
-- Siri & Shortcuts support ("start recording" App Intent)
 - Streaming LLM output
 - Import / export improvements
 - Optional noise reduction
