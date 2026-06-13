@@ -62,8 +62,14 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: var(--primary); }
-    nav .brand { font-size: 17px; font-weight: 700; color: var(--text-h); }
+    nav .brand { font-size: 17px; font-weight: 700; color: var(--text-h); text-decoration: none; }
     nav .brand em { color: var(--primary); font-style: normal; }
+    .nav-home {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 6px 14px;
+    }
     main { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
     h1 { font-size: 32px; font-weight: 800; color: var(--text-h); letter-spacing: -0.8px; margin-bottom: 8px; }
     .meta { font-size: 13px; color: var(--text-m); margin-bottom: 40px; }
@@ -93,12 +99,14 @@
       white-space: pre-wrap;
     }
     footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; font-size: 12px; color: var(--text-m); }
+    footer a { color: var(--primary); font-weight: 600; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 <nav>
-  <span class="brand">tonota<em>.</em></span>
-  <a href="index.html">Back</a>
+  <a class="brand" href="index.html" aria-label="Tonota home">tonota<em>.</em></a>
+  <a class="nav-home" href="index.html">Tonota Home</a>
 </nav>
 <main>
   <h1>Open Source Licenses</h1>
@@ -213,6 +221,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.</pre>
   </section>
 </main>
-<footer>© 2026 Jane Wu · Tonota</footer>
+<footer>© 2026 Jane Wu · Tonota · <a href="index.html">Tonota Home</a></footer>
 </body>
 </html>
