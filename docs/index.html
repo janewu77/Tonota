@@ -482,6 +482,56 @@
       color: #fff;
     }
 
+    /* ── OPEN SOURCE ── */
+    .open-source {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 8px 24px 72px;
+      text-align: center;
+    }
+    .open-source p {
+      color: var(--text-s);
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+    .oss-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .oss-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 18px;
+      min-width: 220px;
+      text-align: left;
+      box-shadow: 0 2px 12px rgba(140,110,200,.06);
+    }
+    .oss-card a {
+      color: var(--text-h);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .oss-card a:hover { color: var(--primary); }
+    .oss-card span {
+      display: block;
+      color: var(--text-m);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+    .oss-note {
+      display: inline-block;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 18px;
+      text-decoration: none;
+    }
+    .oss-note:hover { text-decoration: underline; }
+
     /* ── REQUIREMENTS ── */
     .reqs {
       background: var(--surface);
@@ -759,6 +809,32 @@
   </div>
 </section>
 
+<!-- OPEN SOURCE -->
+<section class="open-source">
+  <p class="section-label">Open Source &amp; Models</p>
+  <h2 class="section-title">Built on privacy-friendly local AI.</h2>
+  <p>Tonota uses open-source on-device AI libraries and downloadable local models. Their notices stay available for review.</p>
+  <div class="oss-list">
+    <div class="oss-card">
+      <a href="https://github.com/argmaxinc/WhisperKit" target="_blank" rel="noopener">WhisperKit</a>
+      <span>MIT License · Copyright © 2024 argmax, inc.</span>
+    </div>
+    <div class="oss-card">
+      <a href="https://github.com/ml-explore/mlx-swift-lm" target="_blank" rel="noopener">mlx-swift-lm</a>
+      <span>MIT License · Copyright © 2024 ml-explore.</span>
+    </div>
+    <div class="oss-card">
+      <a href="https://huggingface.co/argmaxinc/whisperkit-coreml" target="_blank" rel="noopener">WhisperKit Core ML models</a>
+      <span>Speech models · based on OpenAI Whisper</span>
+    </div>
+    <div class="oss-card">
+      <a href="https://huggingface.co/mlx-community" target="_blank" rel="noopener">MLX community LLM models</a>
+      <span>Local text polishing · model-specific licenses</span>
+    </div>
+  </div>
+  <a class="oss-note" href="open-source.html">View full license notices</a>
+</section>
+
 <!-- REQUIREMENTS -->
 <section class="reqs">
   <p class="section-label">Requirements</p>
@@ -815,6 +891,7 @@
   </a>
   <nav>
     <a href="privacy.html">Privacy Policy</a>
+    <a href="open-source.html">Open Source</a>
     <a href="mailto:janewu2005@gmail.com">Support</a>
     <a href="https://github.com/janewu77" target="_blank" rel="noopener">GitHub</a>
   </nav>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Source Licenses — Tonota</title>
+  <meta name="description" content="Open-source library and model license notices for Tonota, including WhisperKit, mlx-swift-lm, Whisper models, and optional local LLM downloads." />
+  <meta name="apple-itunes-app" content="app-id=6775595589" />
+  <meta name="theme-color" content="#9b78e8" />
+  <link rel="canonical" href="https://janewu77.github.io/Tonota/open-source.html" />
+  <link rel="icon" type="image/svg+xml" href="images/tonota-icon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tonota" />
+  <meta property="og:title" content="Open Source Licenses — Tonota" />
+  <meta property="og:description" content="Library and model license notices for Tonota's on-device AI features, including WhisperKit, mlx-swift-lm, Whisper, and user-downloaded local LLM models." />
+  <meta property="og:url" content="https://janewu77.github.io/Tonota/open-source.html" />
+  <meta property="og:image" content="https://janewu77.github.io/Tonota/images/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Open Source Licenses — Tonota" />
+  <meta name="twitter:description" content="Library and model license notices for Tonota's private, on-device AI features." />
+  <meta name="twitter:image" content="https://janewu77.github.io/Tonota/images/og-image.png" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Open Source Licenses — Tonota",
+    "description": "Open-source library and model license notices for Tonota, including WhisperKit, mlx-swift-lm, Whisper models, and optional local LLM downloads.",
+    "url": "https://janewu77.github.io/Tonota/open-source.html",
+    "image": "https://janewu77.github.io/Tonota/images/og-image.png",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Tonota",
+      "url": "https://janewu77.github.io/Tonota/"
+    },
+    "about": {
+      "@type": "MobileApplication",
+      "name": "Tonota",
+      "operatingSystem": "iOS 17",
+      "applicationCategory": "ProductivityApplication",
+      "installUrl": "https://apps.apple.com/app/id6775595589"
+    }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f0edf8; --surface: #faf8ff; --card: #ffffff;
+      --border: #ede8f8; --primary: #9b78e8;
+      --text-h: #3a2d5c; --text-b: #4a3f6b; --text-s: #9b90bf; --text-m: #c5bce0;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text-b); line-height: 1.7; }
+    nav {
+      background: rgba(250,248,255,.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: var(--primary); }
+    nav .brand { font-size: 17px; font-weight: 700; color: var(--text-h); }
+    nav .brand em { color: var(--primary); font-style: normal; }
+    main { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+    h1 { font-size: 32px; font-weight: 800; color: var(--text-h); letter-spacing: -0.8px; margin-bottom: 8px; }
+    .meta { font-size: 13px; color: var(--text-m); margin-bottom: 40px; }
+    h2 { font-size: 20px; font-weight: 750; color: var(--text-h); margin: 40px 0 8px; }
+    h3 { font-size: 15px; font-weight: 700; color: var(--text-h); margin: 20px 0 8px; }
+    p { font-size: 15px; color: var(--text-b); margin-bottom: 14px; }
+    ul { padding-left: 20px; margin-bottom: 14px; }
+    li { font-size: 15px; color: var(--text-b); margin-bottom: 7px; }
+    a { color: var(--primary); }
+    .notice {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      margin-top: 18px;
+      box-shadow: 0 2px 12px rgba(140,110,200,.06);
+    }
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text-b);
+      font-size: 12px;
+      line-height: 1.55;
+      overflow-x: auto;
+      padding: 16px;
+      white-space: pre-wrap;
+    }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; font-size: 12px; color: var(--text-m); }
+  </style>
+</head>
+<body>
+<nav>
+  <span class="brand">tonota<em>.</em></span>
+  <a href="index.html">Back</a>
+</nav>
+<main>
+  <h1>Open Source Licenses</h1>
+  <p class="meta">Last updated: June 13, 2026</p>
+
+  <p>Tonota uses open-source libraries to run transcription and local AI features on device. This page preserves their copyright and license notices.</p>
+  <p>Model files have licenses separate from the app and library code. Please review the license for each model you choose to download or use.</p>
+
+  <section class="notice">
+    <h2>Model Notices</h2>
+    <p>Tonota downloads AI models only when you choose to install them. The currently referenced model sources are:</p>
+    <ul>
+      <li><strong>Speech recognition:</strong> models from <a href="https://huggingface.co/argmaxinc/whisperkit-coreml" target="_blank" rel="noopener">argmaxinc/whisperkit-coreml</a>, based on the OpenAI Whisper model family.</li>
+      <li><strong>Local LLM polishing:</strong> models are not bundled with Tonota. Users can choose to download options such as <a href="https://huggingface.co/mlx-community/Qwen3-0.6B-4bit" target="_blank" rel="noopener">Qwen3 0.6B 4bit</a>, <a href="https://huggingface.co/mlx-community/Qwen2.5-1.5B-Instruct-4bit" target="_blank" rel="noopener">Qwen2.5 1.5B Instruct 4bit</a>, <a href="https://huggingface.co/mlx-community/Qwen3-1.7B-4bit" target="_blank" rel="noopener">Qwen3 1.7B 4bit</a>, and <a href="https://huggingface.co/mlx-community/Qwen3-4B-4bit" target="_blank" rel="noopener">Qwen3 4B 4bit</a>.</li>
+      <li><strong>Optional/custom LLM models:</strong> if you enable additional models from the MLX registry, those models keep the license shown on their own Hugging Face model card.</li>
+    </ul>
+    <p>The Qwen2.5/Qwen3 MLX community conversion model cards identify their license as Apache License 2.0 and link to the upstream Qwen license files.</p>
+  </section>
+
+  <section class="notice">
+    <h2>OpenAI Whisper</h2>
+    <p><a href="https://github.com/openai/whisper" target="_blank" rel="noopener">github.com/openai/whisper</a></p>
+    <h3>MIT License</h3>
+    <pre>MIT License
+
+Copyright (c) 2022 OpenAI
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre>
+  </section>
+
+  <section class="notice">
+    <h2>Qwen Models</h2>
+    <p>The selectable Qwen local LLM options use MLX community conversions of upstream Qwen models. Their model cards identify the license as Apache License 2.0.</p>
+    <p>Upstream license references:</p>
+    <ul>
+      <li><a href="https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/blob/main/LICENSE" target="_blank" rel="noopener">Qwen2.5 1.5B Instruct license</a></li>
+      <li><a href="https://huggingface.co/Qwen/Qwen3-0.6B/blob/main/LICENSE" target="_blank" rel="noopener">Qwen3 0.6B license</a></li>
+      <li><a href="https://huggingface.co/Qwen/Qwen3-1.7B/blob/main/LICENSE" target="_blank" rel="noopener">Qwen3 1.7B license</a></li>
+      <li><a href="https://huggingface.co/Qwen/Qwen3-4B/blob/main/LICENSE" target="_blank" rel="noopener">Qwen3 4B license</a></li>
+    </ul>
+    <h3>Apache License 2.0</h3>
+    <p>The full Apache License 2.0 text is available at <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">apache.org/licenses/LICENSE-2.0</a>.</p>
+  </section>
+
+  <section class="notice">
+    <h2>WhisperKit</h2>
+    <p><a href="https://github.com/argmaxinc/WhisperKit" target="_blank" rel="noopener">github.com/argmaxinc/WhisperKit</a></p>
+    <h3>MIT License</h3>
+    <pre>MIT License
+
+Copyright (c) 2024 argmax, inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre>
+  </section>
+
+  <section class="notice">
+    <h2>mlx-swift-lm</h2>
+    <p><a href="https://github.com/ml-explore/mlx-swift-lm" target="_blank" rel="noopener">github.com/ml-explore/mlx-swift-lm</a></p>
+    <h3>MIT License</h3>
+    <pre>MIT License
+
+Copyright (c) 2024 ml-explore
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre>
+  </section>
+</main>
+<footer>© 2026 Jane Wu · Tonota</footer>
+</body>
+</html>

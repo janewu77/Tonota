@@ -47,6 +47,20 @@ Swift / SwiftUI · SwiftData (local-only, no CloudKit) · WhisperKit · mlx-swif
 
 > The story: from first line of code to App Store approval in **9 days** — written up [on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7470456182693056512/).
 
+## Open-source acknowledgements
+
+Tonota uses the following open-source libraries:
+
+- [WhisperKit](https://github.com/argmaxinc/WhisperKit) — MIT License, Copyright (c) 2024 argmax, inc.
+- [mlx-swift-lm](https://github.com/ml-explore/mlx-swift-lm) — MIT License, Copyright (c) 2024 ml-explore.
+
+Full license notices are available on the [Open Source Licenses](https://janewu77.github.io/Tonota/open-source.html) page. Model files may have separate licenses from their upstream providers.
+
+Model acknowledgements:
+
+- Speech recognition models are downloaded from [argmaxinc/whisperkit-coreml](https://huggingface.co/argmaxinc/whisperkit-coreml), based on the OpenAI Whisper model family.
+- Local LLM polishing models are not bundled with Tonota. They are downloaded from Hugging Face through `mlx-swift-lm` only when the user chooses to install one. The selectable Qwen2.5/Qwen3 MLX community conversions are listed as Apache 2.0; optional/custom models keep their own upstream model licenses.
+
 ## What's new in 1.6
 
 Start recording without opening the app: Siri & Shortcuts actions (chain them into automations — e.g. record when your car's Bluetooth connects), a home-screen Quick Action, and a Control Center / Lock Screen button (iOS 18+). Plus resumable interrupted transcriptions, batch move to folders, and a new About page.
