@@ -65,6 +65,8 @@ Model acknowledgements:
 
 ## What's new in 1.7
 
+<img src="assets/store_images/tonota_watch_promo_v1.7.png" alt="Tonota now on Apple Watch — record offline, auto-sync & transcribe, browse & play on your wrist" width="100%" />
+
 Tonota comes to Apple Watch. Raise your wrist and record — no need to reach for your phone. Recordings sync to iPhone and transcribe automatically. Plus browse recent memos and play audio on the watch. Also new: switch the app language in-app (English / German / Chinese, no restart), folder tags in the memo list, live dictation no longer auto-closes, and model downloads support pause / resume / cancel with friendlier error handling.
 
 ## What's new in 1.6
