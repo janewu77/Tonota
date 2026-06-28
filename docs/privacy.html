@@ -49,7 +49,7 @@
 </nav>
 <main>
   <h1>Privacy Policy</h1>
-  <p class="meta">Last updated: June 4, 2026 · v1.4</p>
+  <p class="meta">Last updated: June 28, 2026 · v1.8</p>
 
   <h2>Overview</h2>
   <p>Tonota does not collect, transmit, or store any personal data on any server. All audio recordings and transcriptions remain on your device at all times.</p>
@@ -76,7 +76,8 @@
 
   <h2>Third-party dependencies</h2>
   <p><strong>WhisperKit</strong> (open-source, MIT licence) runs entirely on-device using Apple's Core ML framework. WhisperKit does not make network calls during inference. Model weights are downloaded once from Hugging Face CDN on first setup; no personal data is included in that request.</p>
-  <p><strong>mlx-swift-lm</strong> (open-source, MIT licence) powers local LLM text polishing on device. It does not send your recordings or transcripts to any server during inference.</p>
+  <p><strong>mlx-swift-lm</strong> (open-source, MIT licence) powers Tonota's on-device AI features — translating, summarizing, extracting to-dos, rewriting, polishing, and any custom instructions you create. It runs entirely on your device and does not send your recordings or transcripts to any server during inference.</p>
+  <p><strong>Apple Foundation Models</strong> is an optional on-device language model provided by Apple as part of Apple Intelligence (available on supported devices). When you choose it as your AI model, the same AI features run locally using Apple's built-in system model — your recordings and transcripts are not uploaded by Tonota. As an Apple system feature, its use is also governed by Apple's own privacy terms for Apple Intelligence.</p>
 
   <h2>Your rights</h2>
   <p>Because Tonota collects no personal data, there is nothing to delete, export, or correct. Uninstalling the app removes all locally stored recordings and transcriptions.</p>
