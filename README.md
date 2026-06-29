@@ -34,7 +34,8 @@ Most voice memo apps upload your audio to a server for transcription. Tonota doe
 
 - **Apple Watch companion app** — record directly from your wrist, offline; recordings sync to iPhone and transcribe automatically
 - **On-device transcription** — powered by [WhisperKit](https://github.com/argmaxinc/WhisperKit), up to Whisper Large v3, 10 languages
-- **AI text polishing** — a local LLM (via [MLX](https://github.com/ml-explore/mlx-swift)) turns raw speech into clean, readable text; pick your model with quality ratings
+- **On-device AI translation & tools** — translate transcripts or run built-in/custom AI tools locally via a local LLM ([MLX](https://github.com/ml-explore/mlx-swift)) or, on supported devices, [Apple Foundation Models](https://developer.apple.com/apple-intelligence/); results stream in with the model name shown and reasoning collapsed by default
+- **AI text polishing** — a local LLM turns raw speech into clean, readable text; pick your model with quality ratings
 - **Live dictation mode** — optional real-time transcription while you speak
 - **Record from anywhere** — Siri & Shortcuts actions ("Start Recording", "Stop & Save"), home-screen Quick Action, and a Control Center / Lock Screen button (iOS 18+)
 - **Resumable transcriptions** — interrupted transcriptions are detected on next launch and resumed with one tap
@@ -47,7 +48,7 @@ Most voice memo apps upload your audio to a server for transcription. Tonota doe
 
 Swift / SwiftUI · SwiftData (local-only, no CloudKit) · WhisperKit · mlx-swift-lm
 
-> The story: from first line of code to App Store approval in **9 days** — written up [on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7470456182693056512/). v1.6 build notes [also on LinkedIn](https://www.linkedin.com/posts/janewush_ios-buildinpublic-ondeviceai-ugcPost-7471225779654254592-5pmQ/).
+> The story: from first line of code to App Store approval in **9 days** — written up [on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7470456182693056512/). v1.6 build notes [also on LinkedIn](https://www.linkedin.com/posts/janewush_ios-buildinpublic-ondeviceai-ugcPost-7471225779654254592-5pmQ/), and v1.7 (Apple Watch) [on LinkedIn too](https://www.linkedin.com/posts/janewush_ios-buildinpublic-ondeviceai-activity-7475131511336525825-v-kX).
 
 ## Open-source acknowledgements
 
@@ -62,6 +63,11 @@ Model acknowledgements:
 
 - Speech recognition models are downloaded from [argmaxinc/whisperkit-coreml](https://huggingface.co/argmaxinc/whisperkit-coreml), based on the OpenAI Whisper model family.
 - Local LLM polishing models are not bundled with Tonota. They are downloaded from Hugging Face through `mlx-swift-lm` only when the user chooses to install one. The selectable Qwen2.5/Qwen3 MLX community conversions are listed as Apache 2.0; optional/custom models keep their own upstream model licenses.
+- On supported devices, Tonota can also use [Apple Foundation Models](https://developer.apple.com/apple-intelligence/) (part of Apple Intelligence) as an optional on-device language model. It is a system framework provided by Apple, not bundled with Tonota, and its use is governed by Apple's software license and Apple Intelligence terms.
+
+## What's new in 1.8
+
+On-device AI gets a big upgrade. Translate a transcript or run built-in AI tools — summarize, extract key points, and more — entirely on your phone. Choose an MLX local model, or on supported devices use **Apple Foundation Models** (Apple Intelligence) with no download at all. Results stream in as they generate, the active model name is shown, and the model's reasoning stays collapsed by default. You can also create up to 5 of your own custom tools. Models that exceed your device's memory are hidden automatically.
 
 ## What's new in 1.7
 
