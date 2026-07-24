@@ -32,14 +32,15 @@ Most voice memo apps upload your audio to a server for transcription. Tonota doe
 
 ## Features
 
-- **Apple Watch companion app** — record directly from your wrist, offline; recordings sync to iPhone and transcribe automatically
-- **On-device transcription** — powered by [WhisperKit](https://github.com/argmaxinc/WhisperKit), up to Whisper Large v3, 10 languages
+- **Tap-to-seek playback** — transcripts remember when every sentence was spoken; tap any line to play from that exact moment, with the active line highlighted as it plays (suggested by Nicky Xu)
+- **Apple Watch companion app** — record directly from your wrist, offline, for up to 2 hours per session; recordings sync to iPhone and transcribe automatically
+- **On-device transcription** — powered by [WhisperKit](https://github.com/argmaxinc/WhisperKit), up to Whisper Large v3, 10 languages; long recordings (5+ minutes) transcribe in segments with a live progress percentage
 - **On-device AI translation & tools** — translate transcripts or run built-in/custom AI tools locally via a local LLM ([MLX](https://github.com/ml-explore/mlx-swift)) or, on supported devices, [Apple Foundation Models](https://developer.apple.com/apple-intelligence/); results stream in with the model name shown and reasoning collapsed by default
 - **AI text polishing** — a local LLM turns raw speech into clean, readable text; pick your model with quality ratings
-- **Live dictation mode** — optional real-time transcription while you speak
+- **Live dictation mode** — optional real-time transcription while you speak, with a one-tap switch between recording and live dictation mid-session
 - **Record from anywhere** — Siri & Shortcuts actions ("Start Recording", "Stop & Save"), home-screen Quick Action, and a Control Center / Lock Screen button (iOS 18+)
 - **Resumable transcriptions** — interrupted transcriptions are detected on next launch and resumed with one tap
-- **Folders & search** — organize memos, search across titles and transcripts, batch-move memos between folders; folder tag shown in memo list
+- **Folders & search** — organize memos, search across titles and transcripts, batch-move memos between folders with select-all support; folder tag shown in memo list
 - **Batch export** — transcripts as `.txt`, original audio included
 - **Localized** — English, Deutsch, 简体中文; switch language in-app without restarting (suggested by Nicky Xu)
 - **Smarter model downloads** — pause, resume, or cancel mid-download; friendly error messages with a one-tap "Check network" button; no more phantom downloads when you leave the page (suggested by Kenny Wang)
@@ -64,6 +65,10 @@ Model acknowledgements:
 - Speech recognition models are downloaded from [argmaxinc/whisperkit-coreml](https://huggingface.co/argmaxinc/whisperkit-coreml), based on the OpenAI Whisper model family.
 - Local LLM polishing models are not bundled with Tonota. They are downloaded from Hugging Face through `mlx-swift-lm` only when the user chooses to install one. The selectable Qwen2.5/Qwen3 MLX community conversions are listed as Apache 2.0; optional/custom models keep their own upstream model licenses.
 - On supported devices, Tonota can also use [Apple Foundation Models](https://developer.apple.com/apple-intelligence/) (part of Apple Intelligence) as an optional on-device language model. It is a system framework provided by Apple, not bundled with Tonota, and its use is governed by Apple's software license and Apple Intelligence terms.
+
+## What's new in 1.9
+
+Tap a line in a transcript to play from that exact moment — the sentence you're hearing highlights as it plays. The Apple Watch app now records up to 2 hours in a single session (up from 10 minutes), continuing in the background with the screen off. Long recordings (5+ minutes) transcribe in segments with a live progress percentage instead of just a spinner, and you can now switch between the recording screen and live dictation mid-session without going through Settings.
 
 ## What's new in 1.8
 
