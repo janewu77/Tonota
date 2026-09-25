@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Tonota</title>
-  <meta name="description" content="Tonota's privacy policy: all recording and transcription happens on your iPhone. No cloud, no account, no tracking — your data never leaves your device." />
+  <meta name="description" content="Tonota's privacy policy: local recording and AI processing, optional Watch sync and user-controlled export, with no developer data collection." />
   <meta name="theme-color" content="#9b78e8" />
   <link rel="canonical" href="https://janewu77.github.io/Tonota/privacy.html" />
   <link rel="icon" type="image/svg+xml" href="images/tonota-icon.svg" />
@@ -49,42 +49,41 @@
 </nav>
 <main>
   <h1>Privacy Policy</h1>
-  <p class="meta">Last updated: June 28, 2026 · v1.8</p>
+  <p class="meta">Last updated: September 25, 2026</p>
 
   <h2>Overview</h2>
-  <p>Tonota does not collect, transmit, or store any personal data on any server. All audio recordings and transcriptions remain on your device at all times.</p>
+  <p>Tonota does not collect your recordings, transcripts, or AI tool content on a developer server. Recording, transcription, and AI processing run locally. Your data can move between your paired Apple Watch and iPhone, or leave the app when you choose to export or share it.</p>
 
   <h2>What data Tonota accesses</h2>
   <table>
-    <tr><th>Data</th><th>Purpose</th><th>Leaves your device?</th></tr>
-    <tr><td>Microphone audio</td><td>Recording voice memos</td><td><strong>No</strong></td></tr>
-    <tr><td>Transcription text</td><td>Generated locally, stored in SwiftData</td><td><strong>No</strong></td></tr>
-    <tr><td>Audio files</td><td>Stored locally in the app sandbox</td><td><strong>No</strong></td></tr>
-    <tr><td>Folder names</td><td>Optional labels you create to organize memos, stored locally</td><td><strong>No</strong></td></tr>
-    <tr><td>Optional export folder</td><td>Transcript .txt files and their original audio recordings, written to a folder of your choice on your device or iCloud Drive</td><td><strong>No</strong></td></tr>
+    <tr><th>Data</th><th>Purpose</th><th>Where it goes</th></tr>
+    <tr><td>Microphone audio</td><td>Recording voice memos on iPhone or Apple Watch</td><td>Stored on the recording device; Watch recordings transfer to the paired iPhone</td></tr>
+    <tr><td>Transcripts, titles, folders, AI tool instructions and results</td><td>Creating and organizing memos and running local AI tools</td><td>Stored locally on the iPhone</td></tr>
+    <tr><td>Optional exports and shares</td><td>Saving transcripts and audio to a chosen folder or using the iOS share sheet</td><td>Sent to the destination you choose</td></tr>
   </table>
-  <p>If you choose an export folder that is synced by iCloud Drive (or another file provider you have set up), those files will be handled by that service under its own privacy terms. Tonota itself performs no upload — it only writes files to the location you pick.</p>
+  <p>Watch recordings are kept on the Watch until they can transfer to the paired iPhone. Tonota does not upload them to its own server. If you choose an export folder synced by iCloud Drive or another file provider, or choose a sharing destination, that service handles the copy under its own privacy terms.</p>
 
   <h2>What Tonota does NOT do</h2>
   <ul>
     <li>No user accounts or sign-in</li>
     <li>No analytics or crash reporting to third parties</li>
     <li>No advertising identifiers</li>
-    <li>No network requests after the initial model download</li>
-    <li>No data shared with Apple or any other party beyond what iOS itself collects</li>
+    <li>No developer server receiving recordings, transcripts, or AI tool content</li>
+    <li>No network connection required for transcription or AI inference after model setup</li>
   </ul>
+  <p>Tonota connects to model hosts when you download or update a model. After a model download fails, its network check may send a HEAD request to captive.apple.com and huggingface.co to diagnose connectivity. These requests do not include your recordings or transcripts; the hosts can receive ordinary connection information such as your IP address.</p>
 
   <h2>Third-party dependencies</h2>
-  <p><strong>WhisperKit</strong> (open-source, MIT licence) runs entirely on-device using Apple's Core ML framework. WhisperKit does not make network calls during inference. Model weights are downloaded once from Hugging Face CDN on first setup; no personal data is included in that request.</p>
+  <p><strong>WhisperKit</strong> (open-source, MIT licence) runs transcription on-device using Apple's Core ML framework. Model weights are downloaded from Hugging Face when you choose a model; transcription does not send audio to the model host.</p>
   <p><strong>mlx-swift-lm</strong> (open-source, MIT licence) powers Tonota's on-device AI features — translating, summarizing, extracting to-dos, rewriting, polishing, and any custom instructions you create. It runs entirely on your device and does not send your recordings or transcripts to any server during inference.</p>
   <p><strong>Apple Foundation Models</strong> is an optional on-device language model provided by Apple as part of Apple Intelligence (available on supported devices). When you choose it as your AI model, the same AI features run locally using Apple's built-in system model — your recordings and transcripts are not uploaded by Tonota. As an Apple system feature, its use is also governed by Apple's own privacy terms for Apple Intelligence.</p>
 
   <h2>Your rights</h2>
-  <p>Because Tonota collects no personal data, there is nothing to delete, export, or correct. Uninstalling the app removes all locally stored recordings and transcriptions.</p>
+  <p>Tonota keeps your memos in local app storage until you delete them in the app or remove the app. You can edit transcripts and titles, and export or share content using the app's controls. If you enabled automatic export, Tonota also writes transcript and audio copies to your chosen folder and attempts to remove its matching exports when you delete a memo while that folder remains available. You can inspect or delete those files directly in the chosen folder. Removing Tonota does not remove copies in iCloud Drive, another file provider, or a sharing destination; those services may retain them under their own terms.</p>
 
   <h2>Contact</h2>
   <p>Questions? Email <a href="mailto:janewu2005@gmail.com">janewu2005@gmail.com</a></p>
 </main>
-<footer>© 2026 Jane Wu · Tonota</footer>
+<footer>© 2026 Jing Wu · Tonota</footer>
 </body>
 </html>

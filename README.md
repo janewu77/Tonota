@@ -6,7 +6,7 @@
 
 **Privacy-first voice memos for iPhone — transcribed and polished entirely on your device.**
 
-Zero cloud. Zero account. Your voice never leaves your phone.
+On-device processing. No account. Export and share when you choose.
 
 <br/>
 
@@ -26,7 +26,7 @@ Zero cloud. Zero account. Your voice never leaves your phone.
 
 Most voice memo apps upload your audio to a server for transcription. Tonota doesn't. Everything — recording, speech-to-text, and AI text polishing — runs locally on your iPhone using Apple Silicon.
 
-- 🔒 **No cloud, no account, no tracking** — audio and transcripts stay in local storage, period
+- 🔒 **No cloud processing, no account, no tracking** — audio and transcripts are processed locally; you control exports and sharing
 - ✈️ **Works fully offline** — transcribe on a plane, in the U-Bahn, anywhere
 - 🧠 **On-device AI** — WhisperKit for transcription, local LLM for cleaning up your rambling into readable notes
 
